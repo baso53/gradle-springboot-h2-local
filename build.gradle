@@ -36,6 +36,11 @@ configurations.localH2Implementation {
 	exclude group: 'org.postgresql', module: 'postgresql'
 }
 
+task localH2(type: org.springframework.boot.gradle.tasks.run.BootRun){
+	mainClass = "gradle.springboot.h2.local.example.ExampleApplication"
+	classpath = sourceSets.localH2.runtimeClasspath
+}
+
 test {
 	useJUnitPlatform()
 }
