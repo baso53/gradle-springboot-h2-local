@@ -32,6 +32,10 @@ dependencies {
 	localH2RuntimeOnly 'com.h2database:h2'
 }
 
+configurations.localH2Implementation {
+	exclude group: 'org.postgresql', module: 'postgresql'
+}
+
 test {
 	useJUnitPlatform()
 }
