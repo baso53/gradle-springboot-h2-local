@@ -12,6 +12,18 @@ repositories {
 	mavenCentral()
 }
 
+configurations {
+	localH2Implementation.extendsFrom implementation
+	localH2RuntimeOnly.extendsFrom runtimeOnly
+}
+
+sourceSets {
+	localH2 {
+		compileClasspath += sourceSets.main.output
+		runtimeClasspath += sourceSets.main.output
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'com.h2database:h2'
